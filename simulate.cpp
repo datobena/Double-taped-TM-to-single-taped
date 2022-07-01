@@ -28,12 +28,12 @@ struct node{
         idx = i;
     }
 };
-void simulateOn(node nodes[], vector<char> tape){
+void simulateOn(node nodes[], vector<char>& tape){
     int i = 0;
     int curNode = 0;
     while(true){
         if(i == tape.size()) tape.push_back('_');
-        if(curNode == n - 1) return;
+        if(curNode == n - 1) break;
         char read = tape[i];
         if(nodes[curNode].edges.find(read) == nodes[curNode].edges.end()){
             cout << -1 << endl;
@@ -65,6 +65,7 @@ int main(){
         }
     }
     nodes[n - 1] = node(n - 1);
+    int num;   
     vector<char> tape;
     string st;
     cin >> st;
